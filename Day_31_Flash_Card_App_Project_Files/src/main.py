@@ -15,9 +15,9 @@ to_learn = []
 
 
 try:
-    data = pd.read_csv("Data/words_to_learn.csv")
+    data = pd.read_csv("../Data/words_to_learn.csv")
 except FileNotFoundError:
-    original_data = pd.read_csv("Data/french_words.csv")
+    original_data = pd.read_csv("../Data/french_words.csv")
     print(original_data)
     to_learn = original_data.to_dict(orient="records")
 else:
@@ -63,8 +63,8 @@ flip_timer = window.after(3000, func=card_flip)
 
 # Flash card Canvas
 canvas = Canvas(width=800, height=526, bg="white")
-background_img = PhotoImage(file="Images/card_back.png")
-foreground_img = PhotoImage(file="Images/card_front.png")
+background_img = PhotoImage(file="../Images/card_back.png")
+foreground_img = PhotoImage(file="../Images/card_front.png")
 card_background = canvas.create_image(400, 263, image=foreground_img)
 card_title = canvas.create_text(400, 150, text="", font=("Arial", 40) )
 card_word = canvas.create_text(400, 263, text="", font=("Arial", 60, "bold") )
@@ -73,13 +73,13 @@ canvas.grid(row=0, column=0, columnspan=2)
 
 
 # wrong button
-wrong_image = PhotoImage(file="Images/wrong.png")
+wrong_image = PhotoImage(file="../Images/wrong.png")
 wrong_button = Button(image=wrong_image, highlightthickness=0, command=draw_card)
 wrong_button.grid(row=1, column=0)
 
 # right button
 
-right_image = PhotoImage(file="Images/right.png")
+right_image = PhotoImage(file="../Images/right.png")
 right_button = Button(image=right_image, highlightthickness=0, command=is_known)
 right_button.grid(row=1, column=1)
 
